@@ -3,49 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Kashu 🤍</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <title>For My Kashu ♡</title>
     <style>
-        :root { --pink: #ff85a2; --glass: rgba(255, 255, 255, 0.85); }
-        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background: #000; font-family: 'Poppins', sans-serif; }
-        #start-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #fff0f3; z-index: 1000; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: 0.8s ease; padding: 20px; box-sizing: border-box; }
-        .main-wrapper { height: 100vh; overflow-y: scroll; scroll-snap-type: y mandatory; display: none; }
-        section { height: 100vh; scroll-snap-align: start; position: relative; display: flex; justify-content: center; align-items: center; }
-        .bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; background-repeat: no-repeat; z-index: -1; filter: brightness(0.6); }
-        .card { background: var(--glass); backdrop-filter: blur(10px); padding: 30px; border-radius: 25px; width: 80%; max-width: 320px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.3); }
-        h1 { font-family: 'Dancing Script', cursive; color: var(--pink); font-size: 2.2rem; margin: 0; }
-        p { color: #444; line-height: 1.5; margin-top: 10px; }
-        .btn { background: var(--pink); color: white; border: none; padding: 15px 35px; border-radius: 50px; cursor: pointer; font-size: 1.1rem; box-shadow: 0 5px 15px rgba(255,133,162,0.4); }
+        :root {
+            --pink-soft: #ff85a2;
+            --pink-light: #fbb1bd;
+            --white: #ffffff;
+            --glass: rgba(255, 255, 255, 0.85);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #000;
+            color: #4a4a4a;
+            overflow-x: hidden;
+        }
+
+        /* Fixed Background Image */
+        .fixed-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('IMG_1534.JPG'); /* Your holding hands photo */
+            background-size: cover;
+            background-position: center;
+            z-index: -2;
+            filter: brightness(0.6);
+        }
+
+        /* Snap Scroll Container */
+        .container {
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            height: 100vh;
+        }
+
+        section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            scroll-snap-align: start;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        h1 { font-size: 2.5rem; color: var(--pink-soft); margin-bottom: 10px; }
+        h2 { color: var(--pink-soft); }
+        p { font-size: 1.2rem; max-width: 600px; line-height: 1.6; }
+
+        /* Card Styles */
+        .card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            max-width: 320px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            border: 2px dashed var(--pink-light);
+        }
+
+        .cta-button {
+            background-color: var(--pink-soft);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(255, 133, 162, 0.4);
+        }
+
+        /* Start Overlay */
+        #overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: #fff0f3;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
     </style>
 </head>
 <body>
-    <audio id="bgMusic" loop><source src="music.mp3" type="audio/mpeg"></audio>
 
-    <div id="start-screen">
-        <h1>Hey Kashu 🤍</h1>
-        <p>I made this to remind you how special you are.</p>
-        <button class="btn" onclick="startApp()">Open Your Gift</button>
-    </div>
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
 
-    <div class="main-wrapper" id="content">
-        <section><div class="bg" style="background-image: url('IMG_1410.JPG');"></div><div class="card"><h1>Beautiful 🤍</h1><p>Smile, because you're the best part of my day.</p></div></section>
-        <section><div class="bg" style="background-image: url('IMG_1534.JPG');"></div><div class="card"><h1>Hold On</h1><p>I'm always right here by your side.</p></div></section>
-        <section><div class="bg" style="background-image: url('IMG_1023.JPG');"></div><div class="card"><h1>Peace</h1><p>Take a deep breath and look at the lights.</p></div></section>
-        <section><div class="bg" style="background-image: url('IMG_0978.JPG');"></div><div class="card"><h1>Forever</h1><p>You and me, against any bad mood.</p></div></section>
-        <section><div class="bg" style="background-image: url('IMG_0951.JPG');"></div><div class="card"><h1>I Love You</h1><p>Feel better soon, my Kashu 🤍</p></div></section>
-    </div>
+<div id="overlay">
+    <h1 style="font-size: 2rem;">Hey Kashu 🤍</h1>
+    <p>I made this for you.</p>
+    <button class="cta-button" onclick="startApp()">Open Your Gift</button>
+</div>
 
-    <script>
-        function startApp() {
-            const audio = document.getElementById('bgMusic');
-            // Logic to play music and show the scrollable cards
-            audio.play().catch(e => console.log("Audio play blocked, but opening gift."));
-            document.getElementById('start-screen').style.opacity = '0';
-            setTimeout(() => {
-                document.getElementById('start-screen').style.display = 'none';
-                document.getElementById('content').style.display = 'block';
-            }, 800);
-        }
-    </script>
+<div class="fixed-bg"></div>
+
+<div class="container" id="main-content" style="display:none;">
+    <section>
+        <div class="card">
+            <h1>Hey Kashu 🤍</h1>
+            <p>I know things feel a bit heavy right now, but I wanted to remind you of something...</p>
+            <p><strong>Scroll down</strong> to see why you're so special.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="card">
+            <h2>✨ Rule #1</h2>
+            <p>Your smile is my favorite thing in the world. Please don't let it fade for too long.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="card">
+            <h2>🌸 Just a Reminder</h2>
+            <p>You are stronger than any bad day. I'm right here with you, always.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="card">
+            <h2>🎶 Mera Maan Kehne Laga</h2>
+            <p>Ki tujhse dosti kar loon... 🤍</p>
+            <p>You deserve all the magic, Kashu. I hope this brought a tiny smile to your face today.</p>
+            <button class="cta-button" onclick="alert('I Love You! ❤️')">Click for a Virtual Hug</button>
+        </div>
+    </section>
+</div>
+
+<script>
+    function startApp() {
+        const music = document.getElementById('bgMusic');
+        music.play().catch(e => console.log("Music play blocked"));
+        
+        document.getElementById('overlay').style.display = 'none';
+        document.getElementById('main-content').style.display = 'block';
+    }
+
+    function createHeart() {
+        const heart = document.createElement('div');
+        heart.innerHTML = '❤️';
+        heart.style.position = 'fixed';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.top = '100vh';
+        heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+        heart.style.opacity = Math.random();
+        heart.style.transition = 'transform 5s linear, opacity 5s';
+        heart.style.zIndex = '1';
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.style.transform = `translateY(-110vh) rotate(${Math.random() * 360}deg)`;
+            heart.style.opacity = '0';
+        }, 100);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 6000);
+    }
+
+    setInterval(createHeart, 500);
+</script>
+
 </body>
 </html>
