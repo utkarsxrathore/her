@@ -8,98 +8,39 @@
     <style>
         :root { --pink: #ff85a2; --glass: rgba(255, 255, 255, 0.85); }
         body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background: #fff0f3; font-family: 'Poppins', sans-serif; }
-
-        #start-screen {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: #fff0f3; z-index: 1000; display: flex;
-            flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; transition: 0.8s ease;
-        }
-
-        .main-wrapper {
-            height: 100vh; overflow-y: scroll; scroll-snap-type: y mandatory;
-            display: none; background: #000;
-        }
-
-        section {
-            height: 100vh; scroll-snap-align: start; position: relative;
-            display: flex; justify-content: center; align-items: center;
-        }
-
-        .bg {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-size: cover; background-position: center; z-index: -1;
-            filter: brightness(0.7);
-        }
-
-        .card {
-            background: var(--glass); backdrop-filter: blur(10px);
-            padding: 30px; border-radius: 25px; width: 80%; max-width: 320px;
-            text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.3);
-        }
-
+        #start-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #fff0f3; z-index: 1000; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: 0.8s ease; }
+        .main-wrapper { height: 100vh; overflow-y: scroll; scroll-snap-type: y mandatory; display: none; background: #000; }
+        section { height: 100vh; scroll-snap-align: start; position: relative; display: flex; justify-content: center; align-items: center; }
+        .bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; z-index: -1; filter: brightness(0.7); }
+        .card { background: var(--glass); backdrop-filter: blur(10px); padding: 30px; border-radius: 25px; width: 80%; max-width: 320px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.3); }
         h1 { font-family: 'Dancing Script', cursive; color: var(--pink); font-size: 2.2rem; margin: 0; }
         p { color: #444; line-height: 1.5; margin-top: 10px; }
-
-        .btn {
-            background: var(--pink); color: white; border: none; padding: 15px 35px;
-            border-radius: 50px; cursor: pointer; font-size: 1.1rem;
-            box-shadow: 0 5px 15px rgba(255,133,162,0.4);
-        }
+        .btn { background: var(--pink); color: white; border: none; padding: 15px 35px; border-radius: 50px; cursor: pointer; font-size: 1.1rem; box-shadow: 0 5px 15px rgba(255,133,162,0.4); }
     </style>
 </head>
 <body>
-
-    <audio id="bgMusic" loop>
-        <source src="Mera Mann Kehne Laga Nautanki Saala! 320 Kbps.mp3" type="audio/mpeg">
-    </audio>
-
+    <audio id="bgMusic" loop><source src="music.mp3" type="audio/mpeg"></audio>
     <div id="start-screen">
         <h1>Hey Kashu 🤍</h1>
-        <p>I know your mood is low... I made this for you.</p>
+        <p>I made this to remind you how special you are.</p>
         <button class="btn" onclick="startApp()">Open Your Gift</button>
     </div>
-
     <div class="main-wrapper" id="content">
-        <section>
-            <div class="bg" style="background-image: url('IMG_1410.jpg');"></div>
-            <div class="card"><h1>Beautiful 🤍</h1><p>Smile, because you're the best part of my day.</p></div>
-        </section>
-        <section>
-            <div class="bg" style="background-image: url('IMG_1534.jpg');"></div>
-            <div class="card"><h1>Hold On</h1><p>I'm always right here by your side.</p></div>
-        </section>
-        <section>
-            <div class="bg" style="background-image: url('IMG_1023.jpg');"></div>
-            <div class="card"><h1>Peace</h1><p>Take a deep breath and look at the lights.</p></div>
-        </section>
-        <section>
-            <div class="bg" style="background-image: url('IMG_0978.jpg');"></div>
-            <div class="card"><h1>Forever</h1><p>You and me, against any bad mood.</p></div>
-        </section>
-        <section>
-            <div class="bg" style="background-image: url('IMG_0951.jpg');"></div>
-            <div class="card"><h1>I Love You</h1><p>Feel better soon, my Kashu 🤍</p></div>
-        </section>
+        <section><div class="bg" style="background-image: url('IMG_1410.jpg');"></div><div class="card"><h1>Beautiful 🤍</h1><p>Smile, because you're the best part of my day.</p></div></section>
+        <section><div class="bg" style="background-image: url('IMG_1534.jpg');"></div><div class="card"><h1>Hold On</h1><p>I'm always right here by your side.</p></div></section>
+        <section><div class="bg" style="background-image: url('IMG_1023.jpg');"></div><div class="card"><h1>Peace</h1><p>Take a deep breath and look at the lights.</p></div></section>
+        <section><div class="bg" style="background-image: url('IMG_0978.jpg');"></div><div class="card"><h1>Forever</h1><p>You and me, against any bad mood.</p></div></section>
+        <section><div class="bg" style="background-image: url('IMG_0951.jpg');"></div><div class="card"><h1>I Love You</h1><p>Feel better soon, my Kashu 🤍</p></div></section>
     </div>
-
     <script>
         function startApp() {
             const audio = document.getElementById('bgMusic');
-            // This starts the music and unlocks the scroll
-            audio.play().then(() => {
-                document.getElementById('start-screen').style.opacity = '0';
-                setTimeout(() => {
-                    document.getElementById('start-screen').style.display = 'none';
-                    document.getElementById('content').style.display = 'block';
-                }, 800);
-            }).catch(error => {
-                // If music fails, we still show the content
-                console.log("Music blocked, but continuing...");
+            audio.play();
+            document.getElementById('start-screen').style.opacity = '0';
+            setTimeout(() => {
                 document.getElementById('start-screen').style.display = 'none';
                 document.getElementById('content').style.display = 'block';
-            });
+            }, 800);
         }
     </script>
 </body>
